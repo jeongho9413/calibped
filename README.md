@@ -1,8 +1,8 @@
 # CalibPed
 
-* **CalibPed** is a package for 3D LiDAR person segmentation in real time using LiDAR-camera calibration based on ROS2.
+* **CalibPed** is a ROS2 package for real-time 3D pedestrian segmentatoin using LiDAR-camera calibration.
 * It has been tested with a **Livox Mid-360** and **GoPro Hero 13 Black** on **ROS2 Humble**.
-* This codebase is part of projects being conducted on our lab.
+* This repository is part of ongoing projects in our lab.
 
 
 ## Quick start
@@ -59,8 +59,8 @@ ros2 topic list
 
 ### Camera calibration
 
-Estimate camera intrinsics along with distortions.
-See [this page](https://github.com/jeongho9413/camera-calibration), how to estimate them.
+Estimate the camera intrinsics and distortion coefficients.
+See the instructions on [this page](https://github.com/jeongho9413/camera-calibration). 
 
 
 ### LiDAR-camera calibration
@@ -72,7 +72,7 @@ ros2 bag record -o livox_20250923 \
   /image /camera_info /livox/lidar /livox/imu /tf /tf_static
 ```
 
-Then follow the protocal in the [direct_visual_lidar_calibration](https://koide3.github.io/direct_visual_lidar_calibration/).
+Then follow the protocal described in [direct_visual_lidar_calibration](https://koide3.github.io/direct_visual_lidar_calibration/).
 
 Check your `--camera_model`, `--camera_intrinsics` and `--camera_distortion_coeffs`:
 
@@ -89,7 +89,7 @@ ros2 run direct_visual_lidar_calibration preprocess \
   -v
 ```
 
-For the initial guess, it is highly recommanded to use the manual option for better estimation:
+For the initial guess, it is highly recommanded to use the manual option for a more accurate estimation:
 
 ```bash
 ros2 run direct_visual_lidar_calibration initial_guess_manual livox_20250923_prep
@@ -100,7 +100,8 @@ ros2 run direct_visual_lidar_calibration initial_guess_manual livox_20250923_pre
 Build and run CalibPed:
 
 ```bash
-colcon build --symlink-installsource ./install/setup.bash
+colcon build --symlink-install
+source ./install/setup.bash
 source ~/ws_calibped/install/setup.bash
 ```
 
@@ -115,7 +116,7 @@ Run the package:
 ```bash
 ros2 run calibped calibped_node \
         --ros-args \
-        -p calib_json_path:=/HOME/livingrobot/ws_calibped/src/calibped/calibped/configs/calib.json \
+        -p calib_json_path:=./configs/calib.json \
         -p ped_sector_half_angle_deg:=60.0  
 ```
 
@@ -134,9 +135,9 @@ ros2 topic echo /calib/lidar_ped_dist
     - `/calib/lidar_ped`: Pedestrian/person points according to `/calib/image_mask`.
     - `/calib/lidar_remainder`: Remaining points from `calib/lidar_ped` after noise filtering.
     - `/calib/lidar_bg`: Background points, which is the remainder of the LiDAR scene.
-    - `/calib/lidar_ped_dist`: Distance (meters) from the LiDAR sensor to the closest pedestrian point in `/calib/lidar_ped` (sensitive to image segmentation performance and camera calibration accuracy).
+    - `/calib/lidar_ped_dist`: Distance (meters) from the LiDAR sensor to the closest detected pedestrian point in `/calib/lidar_ped` (sensitive to segmentation performance and camera calibration accuracy).
 
 
 ## Acknowledgements
 * The image-based segmentation is based on [`XuJiacong/PIDNet`](https://github.com/XuJiacong/PIDNet).
-* LiDAR-camera calibration is based on [`koide3/direct_visual_lidar_calibration`](https://github.com/koide3/direct_visual_lidar_calibration/tree/main).
+* The LiDAR-camera calibration is based on [`koide3/direct_visual_lidar_calibration`](https://github.com/koide3/direct_visual_lidar_calibration/tree/main).
