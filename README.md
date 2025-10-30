@@ -1,14 +1,18 @@
-# calibped
+# CalibPed
 
-# Introduction
+* **CalibPed** is a package for 3D LiDAR person segmentation in real time using LiDAR-camera calibration based on ROS2.
+* This codebase is part of projects being conducted on our lab
+* It has been tested with a **Livox Mid-360** and **GoPro Hero 13 Black** on **ROS2 Humble**.
 
-This `calibped` package v.1.1 performs pedestrian segmentation on LiDAR point clouds using LiDAR–camera calibration.
-It has been tested with a **Livox Mid-360** and **GoPro Hero 13 Black** on **ROS 2 Humble**.
 
-> ⚠️ Work in progress: The codebase is under active development and camera intrinsic parameters are still being tuned. Expect frequent updates.
-> 
 
-# Quick start
+
+
+
+
+
+
+## Quick start
 
 We assume that the command `source /opt/ros/humble/setup.bash` has already been executed before running the following steps.
 
