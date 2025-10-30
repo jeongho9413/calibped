@@ -72,7 +72,7 @@ ros2 bag record -o livox_20250923 \
   /image /camera_info /livox/lidar /livox/imu /tf /tf_static
 ```
 
-Then follow the protocal described in [direct_visual_lidar_calibration](https://koide3.github.io/direct_visual_lidar_calibration/).
+Then follow the protocal described in [`koide3/direct_visual_lidar_calibration`](https://koide3.github.io/direct_visual_lidar_calibration/).
 
 Check your `--camera_model`, `--camera_intrinsics` and `--camera_distortion_coeffs`:
 
