@@ -13,7 +13,7 @@
 
 <p align="center">
   <img src="assets/exp_20250923_3.png" width="1000"/></br>
-  <span align="center">Demonstration of the CalibPed implementation.</span> 
+  <span align="center">Implementation of the CalibPed.</span> 
 </p>
 
 
