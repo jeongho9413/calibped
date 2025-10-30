@@ -1,22 +1,13 @@
 # CalibPed
 
 * **CalibPed** is a package for 3D LiDAR person segmentation in real time using LiDAR-camera calibration based on ROS2.
-* This codebase is part of projects being conducted on our lab
 * It has been tested with a **Livox Mid-360** and **GoPro Hero 13 Black** on **ROS2 Humble**.
-
-
-
-
-
-
-
+* This codebase is part of projects being conducted on our lab.
 
 
 ## Quick start
 
-We assume that the command `source /opt/ros/humble/setup.bash` has already been executed before running the following steps.
-
-## LiDAR settings (Livox Mid-360)
+### LiDAR settings (Livox Mid-360)
 
 Configure and check the IP address (if needed):
 
@@ -27,14 +18,15 @@ sudo ip link set enx00e04c68030a up
 ping -c 3 192.168.1.184
 ```
 
-Mainline:
+Launch a livox LiDAR driver following the official documentation:
 
 ```bash
+source /opt/ros/humble/setup.bash
 source ~/ws_livox/install/setup.bash
 ros2 launch livox_ros_driver2 rviz_MID360_launch.py
 ```
 
-## Camera settings (GoPro Hero 13 Black)
+### Camera settings (GoPro Hero 13 Black)
 
 Set up the `ros_gopro_driver`:
 
@@ -65,18 +57,13 @@ Check all topics:
 ros2 topic list
 ```
 
-## Camera calibration (fisheye)
+### Camera calibration
 
-Estimate camera intrinsics with distortions (if needed).
+Estimate camera intrinsics along with distortions.
+See [this page](https://github.com/jeongho9413/camera-calibration), how to estimate them.
 
-See files in  `CameraCalibration`.
 
-```bash
-python3 ~/CameraCalibration/topic2img.py
-python3 ~/CameraCalibration/calibration_fisheye.py
-```
-
-## LiDAR-camera calibration
+### LiDAR-camera calibration
 
 Record a rosbag file for calibraiton:
 
@@ -85,7 +72,7 @@ ros2 bag record -o livox_20250923 \
   /image /camera_info /livox/lidar /livox/imu /tf /tf_static
 ```
 
-Then follow the protocal in Koide-san’s official documentation.
+Then follow the protocal in the [direct_visual_lidar_calibration](https://koide3.github.io/direct_visual_lidar_calibration/).
 
 Check your `--camera_model`, `--camera_intrinsics` and `--camera_distortion_coeffs`:
 
@@ -108,9 +95,9 @@ For the initial guess, it is highly recommanded to use the manual option for bet
 ros2 run direct_visual_lidar_calibration initial_guess_manual livox_20250923_prep
 ```
 
-## Calibped
+### CalibPed
 
-Build and run Calibped:
+Build and run CalibPed:
 
 ```bash
 colcon build --symlink-installsource ./install/setup.bash
