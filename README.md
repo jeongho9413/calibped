@@ -5,6 +5,12 @@
 * This repository is part of ongoing projects in our lab.
 
 
+<p align="center">
+  <img src="assets/exp_20250923_2.png" height="380px" style="margin-right:10px;">
+  <img src="assets/exp_20250923_3.png" height="380px">
+</p>
+
+
 ## Quick start
 
 ### LiDAR settings (Livox Mid-360)
