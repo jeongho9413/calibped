@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# checkpoint
+*.pt
+
+# summary
+events.out.tfevents.*
+# cache
+*.pkl
+# C extensions
+*.so
+
+# et cetera
+*.DS_Store
+/site
