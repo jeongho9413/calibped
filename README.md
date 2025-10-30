@@ -6,8 +6,14 @@
 
 
 <p align="center">
-  <img src="assets/exp_20250923_2.png" height="380px" style="margin-right:10px;">
-  <img src="assets/exp_20250923_3.png" height="380px">
+  <img src="assets/exp_20250923_2.png" width="500"/></br>
+  <span align="center">Comparison of inference speed and accuracy for real-time models on test set of Cityscapes.</span> 
+</p>
+
+
+<p align="center">
+  <img src="assets/exp_20250923_3.png" width="1000"/></br>
+  <span align="center">Comparison of inference speed and accuracy for real-time models on test set of Cityscapes.</span> 
 </p>
 
 
