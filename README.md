@@ -7,13 +7,13 @@
 
 <p align="center">
   <img src="assets/exp_20250923_2.png" width="500"/></br>
-  <span align="center">Comparison of inference speed and accuracy for real-time models on test set of Cityscapes.</span> 
+  <span align="center">Configuration of the LiDAR sensor and RGB camera.</span> 
 </p>
 
 
 <p align="center">
   <img src="assets/exp_20250923_3.png" width="1000"/></br>
-  <span align="center">Comparison of inference speed and accuracy for real-time models on test set of Cityscapes.</span> 
+  <span align="center">Demonstration of the CalibPed implementation.</span> 
 </p>
 
 
