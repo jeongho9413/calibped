@@ -135,3 +135,8 @@ ros2 topic echo /calib/lidar_ped_dist
     - `/calib/lidar_remainder`: Remaining points from `calib/lidar_ped` after noise filtering.
     - `/calib/lidar_bg`: Background points, which is the remainder of the LiDAR scene.
     - `/calib/lidar_ped_dist`: Distance (meters) from the LiDAR sensor to the closest pedestrian point in `/calib/lidar_ped` (sensitive to image segmentation performance and camera calibration accuracy).
+
+
+## Acknowledgements
+* The image-based segmentation is based on [`XuJiacong/PIDNet`](https://github.com/XuJiacong/PIDNet).
+* LiDAR-camera calibration is based on [`koide3/direct_visual_lidar_calibration`](https://github.com/koide3/direct_visual_lidar_calibration/tree/main).
